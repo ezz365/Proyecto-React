@@ -8,8 +8,7 @@ export const ItemDetailContainer = () => {
 
     const[loading, setLoading] = useState(false)
 
-    useEffect(()=>{
-
+    useEffect(()=>{ 
             setLoading(true)
             getProducts()
                 .then(res => {
