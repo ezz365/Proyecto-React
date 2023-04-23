@@ -16,7 +16,6 @@ function App(){
         </div><div className="App">
                 <Router>
                     <NavBar />
-                    <ItemCount />
                     <Routes>
                         <Route path="/" element={<ItemListContainer />} />
                         <Route path="/counter" element={<ItemCount />} />
