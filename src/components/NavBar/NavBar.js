@@ -7,6 +7,9 @@ const NavBar = ({saludo}) => {
         <main>
             <Link to="/">Logo</Link>
             <Link to="/">Inicio</Link>
+            <Link to="/productos/pantalones">Pantalones</Link>
+            <Link to="/productos/remeras">Remeras</Link>
+            <Link to="/productos/camperas">Camperas</Link>
             <Link to="/counter">Contador</Link>
             <Link to="/cart">Carrito</Link>
             <CartWidget />
