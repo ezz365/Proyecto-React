@@ -1,5 +1,4 @@
 import React, { useEffect, useState} from "react"
-import { productos } from "../../data/stock"
 import { getProducts } from "../../helpers/getProducts"
 import { ItemList } from "../ItemList/ItemList"
 import { useParams } from "react-router-dom"
@@ -40,6 +39,7 @@ const ItemListContainer = (props) =>
                 :<ItemList productos={productos}/>
             }
         </div>
-    )}
+    );
+}
 
 export default ItemListContainer;

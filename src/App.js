@@ -1,6 +1,5 @@
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import NavBar from "./components/NavBar/NavBar";
-import { productos } from "./data/stock";
 import { ItemCount } from "./components/ItemCount/ItemCount";
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
 import {
@@ -13,9 +12,7 @@ import {
 
 function App(){
     return(
-        <><div>
-            
-        </div><div className="App">
+        <div className="App">
                 <Router>
                     <NavBar />
                     <Routes>
@@ -23,10 +20,10 @@ function App(){
                         <Route path="/productos/:categoryId" element={<ItemListContainer/>}/>
                         <Route path="/detail/:productoId" element={<ItemDetailContainer/>}/> 
                         <Route path="/counter" element={<ItemCount />} />
-                        <Route path="*" element={<Navigate />} />
+                        <Route path="*" element={<Navigate to="/" />} />
                     </Routes>
                 </Router>
-            </div></>
+            </div>
     );
 }
 
