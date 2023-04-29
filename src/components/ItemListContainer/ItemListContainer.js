@@ -19,8 +19,11 @@ const ItemListContainer = (props) =>
         getProducts()
             .then((res)=>{
                 //imprimimos la respuesta y la guardamos en el hook
-                setProducts(res.filter(prod => prod.category === categoryId))
-                console.log(res)
+                if(categoryId){
+                setProducts(res.filter(productos => productos.category === categoryId))
+            }else{
+                setProducts(res)
+            }
             })
             //imprimimos los errores
             .catch((error)=> console.log(error))
@@ -36,9 +39,7 @@ const ItemListContainer = (props) =>
                 ?(<h2>Loading...</h2>)
                 :<ItemList productos={productos}/>
             }
-            <h3>{props.saludo}</h3>
         </div>
-    );
-}
+    )}
 
 export default ItemListContainer;

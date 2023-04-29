@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import {ItemCount} from "../ItemCount/ItemCount"
 
 const ItemDetail = ({id, description, price, image, category}) => {
   return (
@@ -10,6 +11,7 @@ const ItemDetail = ({id, description, price, image, category}) => {
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum aliquid commodi inventore! Nulla dicta fugiat enim sequi ea, voluptatum tempora quod ut soluta, dignissimos doloribus facilis quo esse, perspiciatis minus?</p>
         <p>Categoria: {category}</p>
         <img src={image} alt={image} />
+        <ItemCount/>
         <Link to={`/detail/${id}`}><button>Comprar</button></Link> 
     </div>
   )
