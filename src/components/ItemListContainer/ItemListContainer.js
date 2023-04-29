@@ -2,12 +2,16 @@ import React, { useEffect, useState} from "react"
 import { productos } from "../../data/stock"
 import { getProducts } from "../../helpers/getProducts"
 import { ItemList } from "../ItemList/ItemList"
+import { useParams } from "react-router-dom"
 
 const ItemListContainer = (props) => 
 {
-    const [items, setItems] = useState([])
+    const [productos, setProducts] = useState([])
 
     const [loading, setLoading] = useState(false)
+
+    const {categoryId} = useParams()
+    
 
     useEffect(() =>{
     // iniciamos el efecto montaje, con un loading en "true"    
@@ -15,13 +19,13 @@ const ItemListContainer = (props) =>
         getProducts()
             .then((res)=>{
                 //imprimimos la respuesta y la guardamos en el hook
-                setItems(res)
+                setProducts(res.filter(prod => prod.category === categoryId))
                 console.log(res)
             })
             //imprimimos los errores
             .catch((error)=> console.log(error))
             .finally(() =>{setLoading(false)})
-    }, [])
+    }, [categoryId])
 
 
 

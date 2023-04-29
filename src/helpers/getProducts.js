@@ -5,6 +5,6 @@ export const getProducts = () =>{
         setTimeout(() =>{
             resolve(productos)
             reject("Rechazado")
-        },2000)
+        },300)
     })
 }

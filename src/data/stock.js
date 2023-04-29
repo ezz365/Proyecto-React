@@ -19,7 +19,7 @@ export const productos = [
         id: 3,
         name: "Campera de Jean",
         price: 200,
-        description: "Ccampera grande",
+        description: "Campera grande",
         image: "https://picsum.photos/200", 
         category: "camperas"
     },
