@@ -5,7 +5,8 @@ export const productos = [
         price: 100,
         description: "Pantalon grande de jean",
         image: "https://picsum.photos/200",
-        category: "pantalones"
+        category: "pantalones",
+        stock: 10
     },
     {
         id: 2,
@@ -13,7 +14,8 @@ export const productos = [
         price: 80,
         description: "Remera grande azul",
         image: "https://picsum.photos/200", 
-        category: "remeras"
+        category: "remeras",
+        stock: 10
     },
     {
         id: 3,
@@ -21,6 +23,7 @@ export const productos = [
         price: 200,
         description: "Campera grande",
         image: "https://picsum.photos/200", 
-        category: "camperas"
+        category: "camperas",
+        stock: 10
     },
 ];
