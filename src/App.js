@@ -10,6 +10,8 @@ import {
 } from "react-router-dom";
 import { CartContext } from "./components/context/CartContext";
 import { useState } from "react";
+import { CartScreen } from "./components/CartScreen/CartScreen";
+import { productos } from "./data/stock";
 
 function App(){
 
@@ -25,10 +27,28 @@ function App(){
         return carrito.reduce((acc, productos) => acc + productos.counter, 0)
     }
 
+    const totalPrecio = () =>{
+        return carrito.reduce((acc, productos) => acc + productos.price * productos.counter, 0)         
+    }
+
+    const borrarProducto = (productoId)=>{
+        const nuevoCarrito = carrito.filter((productos)=> productos.id !== productoId)
+        setCarrito(nuevoCarrito)
+    }
+    
+    const vaciarCarrito = () =>{
+        setCarrito([])
+    }
+
+
     return(
         <CartContext.Provider value={{
             añadirCarrito,
-            calculoCantidad
+            calculoCantidad,
+            borrarProducto,
+            totalPrecio,
+            carrito,
+            vaciarCarrito
         }}>
         <div className="App">
                 <Router>
@@ -38,6 +58,7 @@ function App(){
                         <Route path="/productos/:categoryId" element={<ItemListContainer/>}/>
                         <Route path="/detail/:productoId" element={<ItemDetailContainer/>}/> 
                         <Route path="/counter" element={<ItemCount />} />
+                        <Route path="/cart" element={<CartScreen />} />
                         <Route path="*" element={<Navigate to="/" />} />
                     </Routes>
                 </Router>
