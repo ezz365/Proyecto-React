@@ -1,7 +1,8 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
-import {ItemCount} from "../ItemCount/ItemCount"
+import { ItemCount } from "../ItemCount/ItemCount"
+import { CartContext } from '../context/CartContext'
 
 const ItemDetail = ({id, description, price, image, category, stock}) => {
  
@@ -11,7 +12,23 @@ const ItemDetail = ({id, description, price, image, category, stock}) => {
     navigate(-1)
   }
 
+  const {añadirCarrito} = useContext(CartContext)
+
   const [counter, setCounter] = useState(0)
+
+  const sumarAlCarrito = () =>{
+    const nuevoItem = {
+      id, 
+      description, 
+      image, 
+      price, 
+      category, 
+      counter
+    }
+    console.log(nuevoItem)
+    añadirCarrito(nuevoItem)
+    }
+  
 
   return (
     <div>
@@ -22,7 +39,7 @@ const ItemDetail = ({id, description, price, image, category, stock}) => {
         <p>Categoria: {category}</p>
         <img src={image} alt={image} />
         <ItemCount max={stock} modify={setCounter} cantidad={counter}/>
-        <Link to={`/detail/${id}`}><button>Comprar</button></Link>
+        <Link to={`/detail/${id}`}><button onClick={sumarAlCarrito}>Comprar</button></Link>
         <button onClick={volver}>Volver</button> 
     </div>
   )
