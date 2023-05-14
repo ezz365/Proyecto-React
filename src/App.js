@@ -8,13 +8,12 @@ import {
     Navigate,
     Route,
 } from "react-router-dom";
-import { CartContext } from "./components/context/CartContext";
-import { useState } from "react";
+import { CartProvider } from "./components/context/CartContext";
 import { CartScreen } from "./components/CartScreen/CartScreen";
-import { productos } from "./data/stock";
+
 
 function App(){
-
+/*
     const[carrito, setCarrito] = useState([])
 
     console.log(carrito)
@@ -39,17 +38,10 @@ function App(){
     const vaciarCarrito = () =>{
         setCarrito([])
     }
-
+*/
 
     return(
-        <CartContext.Provider value={{
-            añadirCarrito,
-            calculoCantidad,
-            borrarProducto,
-            totalPrecio,
-            carrito,
-            vaciarCarrito
-        }}>
+        <CartProvider>
         <div className="App">
                 <Router>
                     <NavBar />
@@ -63,7 +55,7 @@ function App(){
                     </Routes>
                 </Router>
             </div>
-        </CartContext.Provider>
+        </CartProvider>
     );
 }
 

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
 import { productos } from '../../data/stock'
+import { Link } from 'react-router-dom'
 
 export const CartScreen = () => {
 
@@ -8,26 +9,39 @@ export const CartScreen = () => {
 
     return (
     <div className='container'>
-    <h1>Detalle de la compra</h1>
     {
-        carrito.map((productos) =>(
+        carrito.length === 0
+        ? 
         <>
-        <div>
-        <hr/>
-        <div className='listado'>
-            <p>Producto {productos.description}</p>
-            <p>$ {productos.price}</p>
-            <p>Cantidad: {productos.counter}</p>
-            <button onClick={()=> borrarProducto(productos.id)}>Borrar</button>
-        </div>
-        </div>
-        <hr></hr>
-
+            <h3>Carrito vacio</h3>
+            <Link to="/">Volver a comprar</Link>
         </>
-        ))
+        : 
+        <>
+        <h3>Detalle de la compra</h3>
+        {
+            carrito.map((productos) =>(
+            <>
+            <div>
+            <hr/>
+            <div className='listado'>
+                <p>Producto {productos.description}</p>
+                <img src={productos.image} alt={productos.image} />
+                <p>$ {productos.price}</p>
+                <p>Cantidad: {productos.counter}</p>
+                <button onClick={()=> borrarProducto(productos.id)}>Borrar</button>
+            </div>
+            </div>
+            <hr/>
+
+            </>
+            ))
+        }
+        <button onClick={vaciarCarrito}>Vaciar carrito</button>
+        <hr/>
+        <strong>PRECIO: ${totalPrecio()}</strong>
+        </>
     }
-    <button onClick={vaciarCarrito}>Vaciar carrito</button>
-    <strong>PRECIO: ${totalPrecio()}</strong>
     </div>
   )
 }
