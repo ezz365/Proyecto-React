@@ -36,7 +36,21 @@ const ItemListContainer = (props) =>
 
         const productos = db.collection("productos")
 
-        productos.get()
+        if(categoryId){
+            const filtrar = productos.where("category", "==", categoryId)
+            filtrar.get()
+                .then((res)=>{
+                    const newProduct = res.docs.map((doc)=>{
+                        return{id: doc.id, ...doc.data()}
+                    })
+                    setProducts(newProduct)
+                })
+                .catch((error)=>console.log(error))
+                .finally(()=>{
+                    setLoading(false)
+                })
+        }else{
+            productos.get()
         .then((res) =>{
             const newProduct = res.docs.map((doc) =>{
                 return {id: doc.id, ...doc.data()}
@@ -48,6 +62,9 @@ const ItemListContainer = (props) =>
         .finally(()=>{
             setLoading(false)
         })
+        }
+
+        
 
     }, [categoryId])
 
