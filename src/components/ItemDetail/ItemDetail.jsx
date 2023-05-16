@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { ItemCount } from "../ItemCount/ItemCount"
 import { CartContext } from '../context/CartContext'
 
-const ItemDetail = ({id, description, price, image, category, stock}) => {
+const ItemDetail = ({id, name, description, price, image, category, stock}) => {
  
   const navigate = useNavigate()
 
@@ -19,6 +19,7 @@ const ItemDetail = ({id, description, price, image, category, stock}) => {
   const sumarAlCarrito = () =>{
     const nuevoItem = {
       id, 
+      name,
       description, 
       image, 
       price, 
@@ -32,7 +33,7 @@ const ItemDetail = ({id, description, price, image, category, stock}) => {
 
   return (
     <div>
-        <h3>Id:{id}</h3>
+        <h3>Id:{name}</h3>
         <p>Descripcion:{description}</p>
         <p>Precio: ${price}</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum aliquid commodi inventore! Nulla dicta fugiat enim sequi ea, voluptatum tempora quod ut soluta, dignissimos doloribus facilis quo esse, perspiciatis minus?</p>
