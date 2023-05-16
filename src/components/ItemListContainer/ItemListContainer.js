@@ -1,5 +1,6 @@
 import React, { useEffect, useState} from "react"
-import { getProducts } from "../../helpers/getProducts"
+//import { getProducts } from "../../helpers/getProducts"
+import { getFirestore } from "../../firebase/config"
 import { ItemList } from "../ItemList/ItemList"
 import { useParams } from "react-router-dom"
 
@@ -10,13 +11,11 @@ const ItemListContainer = (props) =>
     const [loading, setLoading] = useState(false)
 
     const {categoryId} = useParams()
-    
 
-    useEffect(() =>{
-    // iniciamos el efecto montaje, con un loading en "true"    
-        setLoading(true)
-        getProducts()
-            .then((res)=>{
+     // iniciamos el efecto montaje, con un loading en "true"    
+        //setLoading(true)
+        //getProducts()
+           /* .then((res)=>{
                 //imprimimos la respuesta y la guardamos en el hook
                 if(categoryId){
                 setProducts(res.filter(productos => productos.category === categoryId))
@@ -27,7 +26,31 @@ const ItemListContainer = (props) =>
             //imprimimos los errores
             .catch((error)=> console.log(error))
             .finally(() =>{setLoading(false)})
+    */
+    
+
+    useEffect(() =>{
+        setLoading(true)
+   
+        const db = getFirestore();
+
+        const productos = db.collection("productos")
+
+        productos.get()
+        .then((res) =>{
+            const newProduct = res.docs.map((doc) =>{
+                return {id: doc.id, ...doc.data()}
+            })
+            console.table(newProduct)
+            setProducts(newProduct)
+        })
+        .catch((error)=> console.log(error))
+        .finally(()=>{
+            setLoading(false)
+        })
+
     }, [categoryId])
+
 
 
 
