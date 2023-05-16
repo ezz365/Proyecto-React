@@ -59,8 +59,6 @@ export const Checkout = () => {
             })
     }
 
-    
-
     return (
     <div>
         <h3>Finalizar compra</h3>
