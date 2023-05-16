@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import { CartProvider } from "./components/context/CartContext";
 import { CartScreen } from "./components/CartScreen/CartScreen";
+import Checkout from "./components/CheckOut/Checkout";
 
 
 function App(){
@@ -50,6 +51,7 @@ function App(){
                         <Route path="/productos/:categoryId" element={<ItemListContainer/>}/>
                         <Route path="/detail/:productoId" element={<ItemDetailContainer/>}/> 
                         <Route path="/counter" element={<ItemCount />} />
+                        <Route path="/checkout" element={<Checkout/>} />
                         <Route path="/cart" element={<CartScreen />} />
                         <Route path="*" element={<Navigate to="/" />} />
                     </Routes>

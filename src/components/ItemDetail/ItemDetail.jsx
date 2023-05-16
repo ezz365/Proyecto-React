@@ -40,6 +40,7 @@ const ItemDetail = ({id, description, price, image, category, stock}) => {
         <img src={image} alt={image} />
         <ItemCount max={stock} modify={setCounter} cantidad={counter}/>
         <Link to={`/detail/${id}`}><button onClick={sumarAlCarrito}>Comprar</button></Link>
+        <Link to={`/cart`}><button>Ir al carrito</button></Link>
         <button onClick={volver}>Volver</button> 
     </div>
   )

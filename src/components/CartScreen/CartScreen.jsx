@@ -40,6 +40,8 @@ export const CartScreen = () => {
         <button onClick={vaciarCarrito}>Vaciar carrito</button>
         <hr/>
         <strong>PRECIO: ${totalPrecio()}</strong>
+        <hr/>
+        <Link to={"/checkout"}><button>Finalizar compra</button></Link>
         </>
     }
     </div>
