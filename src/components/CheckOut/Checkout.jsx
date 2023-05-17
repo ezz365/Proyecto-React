@@ -65,21 +65,17 @@ export const Checkout = () => {
         <hr/>
 
         <form onSubmit={controlEnvio}>
+
         <form>
-            <label htmlFor="">Email</label><input onChange={(e)=>setEmail(e.target.value)} value={email}/>
-        </form>
-        <form>
-            <label htmlFor="">Nombre</label><input onChange={(e)=>setNombre(e.target.value)} value={nombre} type='text'/>
-        </form>
-        <form>
-            <label htmlFor="">Apellido</label><input onChange={(e)=>setApellido(e.target.value)} value={apellido} type='text'/>
-        </form>
-        <form>
-            <label htmlFor="">Telefono</label><input onChange={(e)=>setTelefono(e.target.value)} value={telefono} type='number'/>
+            <label htmlFor="" class="form-control">Email:   <input onChange={(e)=>setEmail(e.target.value)} value={email}/></label>
+            <label htmlFor="" class="form-control">Nombre: <input onChange={(e)=>setNombre(e.target.value)} value={nombre} type='text'/></label>
+            <label htmlFor="" class="form-control">Apellido: <input onChange={(e)=>setApellido(e.target.value)} value={apellido} type='text'/></label>
+            <label htmlFor="" class="form-control">Telefono<input onChange={(e)=>setTelefono(e.target.value)} value={telefono} type='number'/></label>
         </form>
         <button type='submit'>Finalizar</button>
         <Link to={`/cart`}><button>Volver al carrito</button></Link>
         </form>
+        
     </div>
   )
 }

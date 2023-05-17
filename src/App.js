@@ -11,36 +11,10 @@ import {
 import { CartProvider } from "./components/context/CartContext";
 import { CartScreen } from "./components/CartScreen/CartScreen";
 import Checkout from "./components/CheckOut/Checkout";
-
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 function App(){
-/*
-    const[carrito, setCarrito] = useState([])
-
-    console.log(carrito)
-
-    const añadirCarrito = (productos) =>{
-        setCarrito([...carrito, productos])
-    }
-
-    const calculoCantidad = () =>{
-        return carrito.reduce((acc, productos) => acc + productos.counter, 0)
-    }
-
-    const totalPrecio = () =>{
-        return carrito.reduce((acc, productos) => acc + productos.price * productos.counter, 0)         
-    }
-
-    const borrarProducto = (productoId)=>{
-        const nuevoCarrito = carrito.filter((productos)=> productos.id !== productoId)
-        setCarrito(nuevoCarrito)
-    }
-    
-    const vaciarCarrito = () =>{
-        setCarrito([])
-    }
-*/
-
     return(
         <CartProvider>
         <div className="App">

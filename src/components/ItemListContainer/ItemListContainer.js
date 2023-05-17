@@ -12,23 +12,6 @@ const ItemListContainer = (props) =>
 
     const {categoryId} = useParams()
 
-     // iniciamos el efecto montaje, con un loading en "true"    
-        //setLoading(true)
-        //getProducts()
-           /* .then((res)=>{
-                //imprimimos la respuesta y la guardamos en el hook
-                if(categoryId){
-                setProducts(res.filter(productos => productos.category === categoryId))
-            }else{
-                setProducts(res)
-            }
-            })
-            //imprimimos los errores
-            .catch((error)=> console.log(error))
-            .finally(() =>{setLoading(false)})
-    */
-    
-
     useEffect(() =>{
         setLoading(true)
    

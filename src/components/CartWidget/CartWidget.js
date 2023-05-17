@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import logo from "../../assets/logo.png"
+import logo from "../../assets/logo.jpg"
 import { CartContext } from "../context/CartContext";
 
 
@@ -11,7 +11,7 @@ export const CartWidget = () =>{
     return(
         <div>
             <img src={logo} />
-            <span>{calculoCantidad()}</span>
+            <h6>{calculoCantidad()}</h6>
         </div>
     ) 
 };

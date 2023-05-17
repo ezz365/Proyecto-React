@@ -5,7 +5,7 @@ import { ItemCount } from "../ItemCount/ItemCount"
 import { CartContext } from '../context/CartContext'
 
 const ItemDetail = ({id, name, description, price, image, category, stock}) => {
- 
+
   const navigate = useNavigate()
 
   const volver = ()=>{
@@ -33,10 +33,9 @@ const ItemDetail = ({id, name, description, price, image, category, stock}) => {
 
   return (
     <div>
-        <h3>Id:{name}</h3>
-        <p>Descripcion:{description}</p>
+        <h3>Id: {name}</h3>
+        <p>Descripcion: {description}</p>
         <p>Precio: ${price}</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum aliquid commodi inventore! Nulla dicta fugiat enim sequi ea, voluptatum tempora quod ut soluta, dignissimos doloribus facilis quo esse, perspiciatis minus?</p>
         <p>Categoria: {category}</p>
         <img src={image} alt={image} />
         <ItemCount max={stock} modify={setCounter} cantidad={counter}/>
